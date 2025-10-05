@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "scraping_date": "2025-10-06T04:36:30.318040",
+    "platform": "Twitter/X",
+    "target_area": "Jawa Barat, Indonesia",
+    "scraper_type": "Selenium WebDriver",
+    "data_collection_period": "2024-2025"
+  },
+  "statistics": {
+    "total_tweets_scraped": 14,
+    "total_tweets_filtered": 13,
+    "filter_threshold": "confidence_score > 30",
+    "avg_confidence": 56.15384615384615,
+    "tweets_with_price": 4,
+    "tweets_with_location": 11,
+    "by_komoditas": {
+      "padi": 7,
+      "beras": 5,
+      "beras_premium": 1
+    },
+    "by_lokasi": {
+      "Indramayu": 5,
+      "Karawang": 4,
+      "Bandung": 1,
+      "Bekasi": 1
+    },
+    "harga_stats": {
+      "mean": 2332.0,
+      "median": 2025.0,
+      "min": 1078.0,
+      "max": 4200.0,
+      "std": 1322.930837194447
+    }
+  },
+  "data": [
+    {
+      "id": "-674973886826185696",
+      "tanggal": "2021-04-22T00:37:23.000Z",
+      "username": "pnugroho28",
+      "platform": "Twitter",
+      "text_original": "Presiden \n@jokowi\n meninjau aktivitas panen padi di kawasan pertanian di Desa Wanasari, Bangodua, Indramayu, Jawa Barat, pada Rabu, 21 April 2021. Dari lahan pertanian 200 hektare diperoleh 7-8 ton per hektar varietas Cilamaya Muncul dengan harga gabah di pasaran Rp. 4.200 per kg",
+      "url": "https://x.com/pnugroho28/status/1385029935073402883",
+      "engagement": {
+        "replies": 1,
+        "retweets": 4,
+        "likes": 15
+      },
+      "komoditas": "padi",
+      "harga": 4200,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": "Indramayu",
+      "confidence_score": 95
+    },
+    {
+      "id": "-3251798039123295938",
+      "tanggal": "2020-10-24T14:46:20.000Z",
+      "username": "siberinfoA1",
+      "platform": "Twitter",
+      "text_original": "1.078 Pegawai Hotel di Bandung Dapat Bansos Sembako yang  berisi barang-barang yaitu : beras premium 10 kilogram, minyak goreng, mie instan, sarden serta saus sambal.\n\n@juliaribatubara \n@KemensosRI\nrepublika.co.id/berita/qinb9u3\n…",
+      "url": "https://x.com/siberinfoA1/status/1320013765404839936",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 2
+      },
+      "komoditas": "beras_premium",
+      "harga": 1078,
+      "satuan": "kg",
+      "kualitas": "premium",
+      "lokasi": "Bandung",
+      "confidence_score": 85
+    },
+    {
+      "id": "-7837587580010126080",
+      "tanggal": "2021-10-02T00:15:26.000Z",
+      "username": "hnurwahid",
+      "platform": "Twitter",
+      "text_original": "PANEN RAYA Bersama Petani, Bupati Karawang dan Gubernur Jabar, PKS peduli Petani, BORONG SEPULUH TON GABAH, dan ingatkan agar tak lagi impor beras. \nyoutu.be/yFMxhuvQSKc via \n@YouTube",
+      "url": "https://x.com/hnurwahid/status/1444093633964097538",
+      "engagement": {
+        "replies": 9,
+        "retweets": 21,
+        "likes": 63
+      },
+      "komoditas": "beras",
+      "harga": null,
+      "satuan": "ton",
+      "kualitas": null,
+      "lokasi": "Karawang",
+      "confidence_score": 65
+    },
+    {
+      "id": "6585102385706232337",
+      "tanggal": "2024-02-29T14:02:32.000Z",
+      "username": "P3gEl",
+      "platform": "Twitter",
+      "text_original": "Udah pada cek pasar cipinang, johar atau di karawang?kalo saya di ritel bekasi harga beras 5kg premium sudah naik 79rb dari sebelumnya 69rb",
+      "url": "https://x.com/P3gEl/status/1763203101891367395",
+      "engagement": {
+        "replies": 2,
+        "retweets": 5,
+        "likes": 10
+      },
+      "komoditas": "beras",
+      "harga": null,
+      "satuan": "kg",
+      "kualitas": "premium",
+      "lokasi": "Bekasi",
+      "confidence_score": 65
+    },
+    {
+      "id": "5103303854841028809",
+      "tanggal": "2025-08-26T10:15:23.000Z",
+      "username": "neneng_jk",
+      "platform": "Twitter",
+      "text_original": "Judul:\n\nDukung Ketahanan Pangan, Hanya dalam 70 Hari Lapas Karawang Panen 2 Ton Padi M70D\n\nBuka link berikut di Chrome atau Google:\npewarta-indonesia.com/2025/08/dukung\n…",
+      "url": "https://x.com/neneng_jk/status/1960284935618462025",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 0
+      },
+      "komoditas": "padi",
+      "harga": 2025,
+      "satuan": "ton",
+      "kualitas": null,
+      "lokasi": "Karawang",
+      "confidence_score": 65
+    },
+    {
+      "id": "7046851944838540099",
+      "tanggal": "2025-09-24T10:27:08.000Z",
+      "username": "jasatirta_2",
+      "platform": "Twitter",
+      "text_original": " Panen Raya Padi Musim Tanam II \n\nPada Rabu, 24 September 2025, GM Wilayah III Perum Jasa Tirta II menghadiri Panen Raya Padi Musim Tanam II yang diselenggarakan oleh Wakil Menteri Pertanian RI di Gapoktan Tani Makmur, Desa Karangmulya, Kec.Kandanghaur, Kab. Indramayu.",
+      "url": "https://x.com/jasatirta_2/status/1970797138272821435",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 3
+      },
+      "komoditas": "padi",
+      "harga": 2025,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": "Indramayu",
+      "confidence_score": 55
+    },
+    {
+      "id": "2662981368666891014",
+      "tanggal": "2023-03-11T07:34:05.000Z",
+      "username": "jokowi",
+      "platform": "Twitter",
+      "text_original": "Sebanyak 10 sentra penggilingan padi milik Bulog telah dibangun di Tanah Air. Tujuh di antaranya sudah beroperasi yaitu di Subang, Kendal, Karawang, Lampung, Bojonegoro, Magetan, dan Sragen.\n\nSentra-sentra penggilingan padi akan dapat memperkuat Bulog menyerap gabah dari petani.",
+      "url": "https://x.com/jokowi/status/1634457649847869442",
+      "engagement": {
+        "replies": 11,
+        "retweets": 69,
+        "likes": 507
+      },
+      "komoditas": "padi",
+      "harga": null,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": "Karawang",
+      "confidence_score": 50
+    },
+    {
+      "id": "-3350447423738860300",
+      "tanggal": "2022-09-23T05:53:23.000Z",
+      "username": "Franken_blues",
+      "platform": "Twitter",
+      "text_original": "1. Ketua DPR RI, \n@puanmaharani_ri\n meninjau langsung unit Modern Rice Milling Palnt (MRMP) di Karawang, Jabar.\nUnit ini dibangun Perum Bulog yg merupakan fasilitas penggilingan padi/gabah modern\n\n#Pangan\n#DPRuntukNegeri\nTerus mendengar aspirasi rakyat",
+      "url": "https://x.com/Franken_blues/status/1573188761806147585",
+      "engagement": {
+        "replies": 10,
+        "retweets": 20,
+        "likes": 19
+      },
+      "komoditas": "beras",
+      "harga": null,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": "Karawang",
+      "confidence_score": 50
+    },
+    {
+      "id": "207922420973591511",
+      "tanggal": "2025-09-29T09:55:39.000Z",
+      "username": "radarmadiunweb",
+      "platform": "Twitter",
+      "text_original": "Indramayu terapkan transformasi sistem pertanian di Desa Wanasari. Pupuk hemat, hasil panen naik, target produksi padi 9 ton lebih!",
+      "url": "https://x.com/radarmadiunweb/status/1972601157542461830",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 0
+      },
+      "komoditas": "padi",
+      "harga": null,
+      "satuan": "ton",
+      "kualitas": null,
+      "lokasi": "Indramayu",
+      "confidence_score": 50
+    },
+    {
+      "id": "-6394527376634632151",
+      "tanggal": "2025-09-25T12:18:56.000Z",
+      "username": "garudatvnews",
+      "platform": "Twitter",
+      "text_original": "Untuk pertama kalinya dalam 35 tahun terakhir, petani di Desa Karangmulya, Kecamatan Kandanghaur, Kabupaten Indramayu berhasil melakukan tanam dan panen padi dua kali dalam setahun.\n\nHal tersebut diungkapkan oleh salah satu petani bernama Maryono kepada Wakil Menteri Pertanian",
+      "url": "https://x.com/garudatvnews/status/1971187663643566200",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 0
+      },
+      "komoditas": "padi",
+      "harga": null,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": "Indramayu",
+      "confidence_score": 40
+    },
+    {
+      "id": "8732132760574940975",
+      "tanggal": "2025-09-25T01:09:49.000Z",
+      "username": "KING_leo2328",
+      "platform": "Twitter",
+      "text_original": "Indonesia jadi lumbung pangan dunia. coba pak tengok ke indramayu sebagai daerah penghasil padi terbesar di indonesia, tapi susah cari air, sawah pada kering sering gagal panen, apa solusinya \n@prabowo",
+      "url": "https://x.com/KING_leo2328/status/1971019273100484940",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 0
+      },
+      "komoditas": "padi",
+      "harga": null,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": "Indramayu",
+      "confidence_score": 40
+    },
+    {
+      "id": "3199162792920886902",
+      "tanggal": "2021-12-29T02:52:07.000Z",
+      "username": "bulogjabar",
+      "platform": "Twitter",
+      "text_original": "BULOG konsisten mengamankan harga gabah beras di tingkat petani dengan menyerap beras petani mencapai 1,2 juta ton. #BULOGSejahterakanPetani",
+      "url": "https://x.com/bulogjabar/status/1476023192959389696",
+      "engagement": {
+        "replies": 0,
+        "retweets": 0,
+        "likes": 0
+      },
+      "komoditas": "beras",
+      "harga": null,
+      "satuan": "ton",
+      "kualitas": null,
+      "lokasi": null,
+      "confidence_score": 35
+    },
+    {
+      "id": "-5479054700785860926",
+      "tanggal": "2022-09-23T06:01:52.000Z",
+      "username": "Rian__Az",
+      "platform": "Twitter",
+      "text_original": ". Ketua DPR RI Puan Maharani \n@puanmaharani_ri\n meninjau langsung unit Modern Rice Milling Plant (MRMP) di Kerawang, Jawa Barat. Merupakan fasilitas penggilingan padi/gabah modern.\n#Pangan\n#DPRuntukNegeri\nTerus mendengar aspirasi rakyat\ngesuri.id/pemerintahan/p\n…",
+      "url": "https://x.com/Rian__Az/status/1573190892961566721",
+      "engagement": {
+        "replies": 8,
+        "retweets": 18,
+        "likes": 20
+      },
+      "komoditas": "beras",
+      "harga": null,
+      "satuan": "kg",
+      "kualitas": null,
+      "lokasi": null,
+      "confidence_score": 35
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+[
+  {
+    "source": "xolovelymasopai",
+    "region": "Kabupaten Subang",
+    "harga": 3500,
+    "kualitas": "GKP",
+    "waktu": "2020-10-27T14:07:34.000Z",
+    "url": "https://x.com/xolovelymasopai/status/1321091172820025351",
+    "note": "Kualitas 'GKP' (Gabah Kering Panen) extracted from text_original."
+  },
+  {
+    "source": "TwitKuningan",
+    "region": "Kabupaten Ciamis",
+    "harga": 5200,
+    "kualitas": null,
+    "waktu": "2014-10-12T07:22:55.000Z",
+    "url": "https://x.com/TwitKuningan/status/521199317369905152",
+    "note": null
+  },
+  {
+    "source": "Antara_Jabar",
+    "region": "Kota Cirebon",
+    "harga": 8100,
+    "kualitas": "medium",
+    "waktu": "2019-02-14T15:13:00.000Z",
+    "url": "https://x.com/Antara_Jabar/status/1096064772729008128",
+    "note": null
+  },
+  {
+    "source": "ekspresnews",
+    "region": "Kota Depok",
+    "harga": 10000,
+    "kualitas": "medium",
+    "waktu": "2023-01-28T04:46:22.000Z",
+    "url": "https://x.com/ekspresnews/status/1619195151800487937",
+    "note": "Extracted price 'Rp10 ribu' from text_original."
+  },
+  {
+    "source": "pikiran_rakyat",
+    "region": "Kota Cirebon",
+    "harga": 10400,
+    "kualitas": "SPHP",
+    "waktu": "2024-02-28T00:21:11.000Z",
+    "url": "https://x.com/pikiran_rakyat/status/1762634011493716073",
+    "note": "Kualitas 'SPHP' extracted from text_original."
+  },
+  {
+    "source": "agusus1920",
+    "region": "Kabupaten Bekasi",
+    "harga": 10600,
+    "kualitas": null,
+    "waktu": "2024-02-21T23:12:53.000Z",
+    "url": "https://x.com/agusus1920/status/1760442495551595000",
+    "note": "Converted from 53000 Rp/5 kg."
+  },
+  {
+    "source": "Sudastika",
+    "region": "Kota Bekasi",
+    "harga": 10900,
+    "kualitas": "medium SPHP",
+    "waktu": "2024-03-18T05:05:09.000Z",
+    "url": "https://x.com/Sudastika/status/1769590843013558637",
+    "note": "Extracted medium SPHP price from text_original as komoditas/harga had conflicting info."
+  },
+  {
+    "source": "Kemendag",
+    "region": "Kabupaten Indramayu",
+    "harga": 11250,
+    "kualitas": "medium",
+    "waktu": "2016-08-11T09:01:36.000Z",
+    "url": "https://x.com/Kemendag/status/763661632966828034",
+    "note": "Converted from Rp 9.000/liter (from text_original) to Rp/kg, assuming 1 liter beras = 0.8 kg."
+  },
+  {
+    "source": "pusdiklatdag",
+    "region": "Kabupaten Indramayu",
+    "harga": 11250,
+    "kualitas": null,
+    "waktu": "2016-08-11T08:49:27.000Z",
+    "url": "https://x.com/pusdiklatdag/status/763658577668104192",
+    "note": "Converted from Rp 9.000/liter (from text_original) to Rp/kg, assuming 1 liter beras = 0.8 kg."
+  },
+  {
+    "source": "Food2H25",
+    "region": "Kota Bekasi",
+    "harga": 11666.67,
+    "kualitas": "medium",
+    "waktu": "2020-05-12T13:00:38.000Z",
+    "url": "https://x.com/Food2H25/status/1260193166235320320",
+    "note": "Converted from 35000 Rp/3 kg (medium quality) from text_original."
+  },
+  {
+    "source": "LMCmotor",
+    "region": "Kabupaten Indramayu",
+    "harga": 12000,
+    "kualitas": null,
+    "waktu": "2015-02-23T08:34:19.000Z",
+    "url": "https://x.com/LMCmotor/status/569777261500612608",
+    "note": "Extracted price '12 ribu per kg' from text_original."
+  },
+  {
+    "source": "Sudastika",
+    "region": "Kota Bekasi",
+    "harga": 12800,
+    "kualitas": "premium",
+    "waktu": "2024-03-18T05:05:09.000Z",
+    "url": "https://x.com/Sudastika/status/1769590843013558637",
+    "note": "Extracted lower bound of premium price range from text_original."
+  },
+  {
+    "source": "Food2H25",
+    "region": "Kota Bekasi",
+    "harga": 13333.33,
+    "kualitas": "semi premium",
+    "waktu": "2020-05-12T13:00:38.000Z",
+    "url": "https://x.com/Food2H25/status/1260193166235320320",
+    "note": "Converted from 40000 Rp/3 kg (semi premium quality) from text_original."
+  },
+  {
+    "source": "PandaDepo",
+    "region": "Kabupaten Karawang",
+    "harga": 14000,
+    "kualitas": "medium",
+    "waktu": "2024-01-30T11:50:52.000Z",
+    "url": "https://x.com/PandaDepo/status/1752298330082943037",
+    "note": "Extracted price '14 RB' (14.000) from text_original."
+  },
+  {
+    "source": "GilangPrayi",
+    "region": "Kabupaten Indramayu",
+    "harga": 16000,
+    "kualitas": null,
+    "waktu": "2018-01-07T07:18:49.000Z",
+    "url": "https://x.com/GilangPrayi/status/949903132779208705",
+    "note": null
+  }
+]

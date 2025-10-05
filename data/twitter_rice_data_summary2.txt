@@ -1,0 +1,50 @@
+======================================================================
+LAPORAN SCRAPING TWITTER - DATA BERAS/PADI JAWA BARAT
+======================================================================
+
+Tanggal Scraping  : 2025-10-06 03:49:10
+Total Tweets      : 326
+Platform          : Twitter/X
+Target Area       : Jawa Barat
+
+----------------------------------------------------------------------
+DISTRIBUSI DATA PER KOMODITAS
+----------------------------------------------------------------------
+beras                    :  268 tweets
+padi                     :   23 tweets
+gabah                    :   17 tweets
+beras_medium             :   13 tweets
+beras_premium            :    5 tweets
+
+----------------------------------------------------------------------
+STATISTIK HARGA (Rp/kg)
+----------------------------------------------------------------------
+Jumlah data harga : 72
+Rata-rata         : Rp 9,748
+Median            : Rp 2,024
+Minimum           : Rp 2,013
+Maximum           : Rp 99,700
+Std Deviation     : Rp 20,236
+
+----------------------------------------------------------------------
+COVERAGE LOKASI (Top 10)
+----------------------------------------------------------------------
+Cirebon                  :  107 tweets
+Indramayu                :   57 tweets
+Bandung                  :   41 tweets
+Cianjur                  :   29 tweets
+Karawang                 :   19 tweets
+Bekasi                   :    9 tweets
+Majalengka               :    6 tweets
+Bogor                    :    4 tweets
+Subang                   :    3 tweets
+Ciamis                   :    2 tweets
+
+----------------------------------------------------------------------
+KUALITAS DATA
+----------------------------------------------------------------------
+Avg Confidence Score: 48.4/100
+Data dengan harga   : 72 (22.1%)
+Data dengan lokasi  : 282 (86.5%)
+
+======================================================================
