@@ -1,85 +1,33 @@
-Analitik Harga/Kualitas Beras – Jabar (MVP)
+# Analitik Harga/Kualitas Beras – Jabar (MVP)
 
-Laporan lengkap + README bergaya GitHub untuk seluruh proyek yang sudah kita bangun: arsitektur, cara jalanin, endpoint, troubleshooting, dan best-practice. Cocok buat disimpan di repo sebagai README.md.
+Aplikasi untuk **menormalkan** data harga/kualitas beras/padi/gabah dari berbagai sumber (CSV/JSON hasil scraping atau media sosial), lalu menampilkan:
 
-Ringkasan Proyek
+- **Tabel hasil normalisasi** (region, harga Rp/kg, kualitas, dll)
+- **Ranking**: Top 10 daerah termurah per kualitas
+- **Word Cloud (SVG) + Sentiment Analysis** — dihitung oleh **Google Gemini**
+- **Export** hasil (CSV/JSON & SVG), **persist** snapshot di browser
 
-Aplikasi ini membantu menormalkan data harga/kualitas beras/padi/gabah dari berbagai sumber (CSV/JSON hasil scraping atau media sosial), lalu menampilkan:
+> Normalisasi & analitik dilakukan via **Gemini Responses API**. Frontend fokus UI, backend menjadi API gateway + prompt builder + payload limiter.
 
-Tabel hasil normalisasi (region, harga Rp/kg, kualitas, dll)
+---
 
-Rangkuman ranking: Top 10 daerah termurah per kualitas
+## 🧱 Teknologi
 
-Word Cloud + Sentiment Analysis (dihitung oleh Gemini, FE hanya menampilkan SVG & ringkasan)
+**Frontend**
+- Vite + React + TypeScript
+- PapaParse (parsing CSV)
+- CSS murni (tema gelap)
 
-Export hasil (CSV/JSON, dan SVG untuk word cloud)
+**Backend**
+- Node.js (ESM: `module`/`moduleResolution` = `NodeNext`)
+- Express + CORS + body parser
+- Google Gemini Responses API (v1beta, `fetch` bawaan Node ≥ 18)
 
-Persist snapshot hasil di localStorage agar tidak hilang saat refresh
+---
 
-Seluruh normalisasi dan word cloud + sentiment dilakukan via Google Gemini (Responses API). Frontend fokus ke UI & visualisasi, backend sebagai API gateway + prompt builder + payload limiter.
+## 📁 Struktur Proyek (disarankan)
 
-Teknologi & Framework
-
-Frontend
-
-Vite + React + TypeScript
-
-PapaParse (parsing CSV)
-
-CSS vanilla custom (tanpa framework, tema gelap elegan)
-
-LocalStorage untuk snapshot
-
-Backend
-
-Node.js (ESM, module + moduleResolution: NodeNext)
-
-Express + CORS + body-parser
-
-Google Gemini (Responses API v1beta, via fetch bawaan Node 18+)
-
-Bahasa & Tools
-
-TypeScript (both FE & BE)
-
-Nodemon untuk dev server backend
-
-Fitur Utama
-
-✅ Upload multi-file (.csv/.json)
-
-✅ Chunking & payload limiting ke Gemini (stabil, anti timeouts)
-
-✅ Normalisasi harga → Rp/kg, region → kab/kota Jawa Barat, kualitas → label konsisten
-
-✅ Tabel + sorting (harga/region/kualitas)
-
-✅ Ranking termurah per kualitas
-
-✅ Word Cloud (SVG) + Sentiment by harga atau kualitas
-
-✅ Export JSON/CSV (tabel) + SVG (word cloud)
-
-✅ Snapshot hasil (persist di browser)
-
-✅ Upload multi-file (.csv/.json)
-
-✅ Chunking & payload limiting ke Gemini (stabil, anti timeouts)
-
-✅ Normalisasi harga → Rp/kg, region → kab/kota Jawa Barat, kualitas → label konsisten
-
-✅ Tabel + sorting (harga/region/kualitas)
-
-✅ Ranking termurah per kualitas
-
-✅ Word Cloud (SVG) + Sentiment by harga atau kualitas
-
-✅ Export JSON/CSV (tabel) + SVG (word cloud)
-
-✅ Snapshot hasil (persist di browser)
-
-
-Struktur Proyek (Direkomendasikan)
+```
 /backend
   /src
     /routes
@@ -100,29 +48,34 @@ Struktur Proyek (Direkomendasikan)
   vite.config.ts
   tsconfig.json
   .env.development
+```
 
-Catatan: Karena pakai NodeNext, semua import relatif antar file TS di backend harus diakhiri .js (contoh: import route from "./routes/ingest-file.js"), meskipun file sumbernya .ts
+> Karena **NodeNext**, seluruh import relatif antar berkas **akhiri `.js`** saat impor (meski berkas sumber `.ts`).  
+> Contoh: `import ingestRoute from "./routes/ingest-file.js"`.
 
-Cara Menjalankan (Dev)
-1) Backend
+---
 
-Install deps:
+## ⚙️ Setup & Menjalankan
 
+### 1) Backend
+
+Install:
+```bash
 cd backend
 npm i
+```
 
-
-Konfigurasi .env:
-
+`.env`:
+```env
 PORT=5000
 GEMINI_API_KEY=YOUR_KEY_HERE
-# Mulai dari model mainstream, helper akan menyesuaikan:
+# mulai dari model yang paling aman & cepat:
 GEMINI_MODEL=gemini-1.5-flash
-# (opsional) gunakan: gemini-1.5-flash-8b bila akun Anda mendukung
+# (opsional) gunakan gemini-1.5-flash-8b bila akun Anda mendukung
+```
 
-
-tsconfig.json backend (inti):
-
+`tsconfig.json` (inti):
+```json
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -136,110 +89,83 @@ tsconfig.json backend (inti):
     "esModuleInterop": true
   }
 }
+```
 
-
-nodemon.json:
-
+`nodemon.json` (hindari restart karena perubahan FE/berkas besar):
+```json
 {
   "watch": ["src"],
   "ext": "ts",
   "ignore": ["../frontend/**", "**/*.json"]
 }
+```
 
-
-Jalankan backend:
-
+Jalankan:
+```bash
 npm run dev
-# typical: "nodemon --exec ts-node src/index.ts"
-
+# biasanya: nodemon --config nodemon.json --exec ts-node src/index.ts
+```
 
 Health check:
+```
+GET http://localhost:5000/api/health   ->  { "ok": true, "ts": 1730... }
+```
 
-GET http://localhost:5000/api/health → {ok:true,...}
+### 2) Frontend
 
-2) Frontend
-
-Install deps:
-
+Install:
+```bash
 cd ../frontend
 npm i
+```
 
-
-.env.development (bypass Vite proxy → paling stabil):
-
+`.env.development` (hindari Vite proxy → paling stabil):
+```env
 VITE_API_BASE=http://localhost:5000/api
+```
 
-
-vite.config.ts (opsional jika ingin proxy):
-
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:5000",
-        changeOrigin: true,
-        secure: false,
-        timeout: 120000,
-        proxyTimeout: 120000
-      }
-    }
-  }
-});
-
-
-Jalankan FE:
-
+Jalankan:
+```bash
 npm run dev
 # buka http://localhost:5173
+```
 
-Alur Pakai Aplikasi
+> Alternatif proxy (opsional, bila tidak pakai `VITE_API_BASE`): set proxy di `vite.config.ts` → `/api -> http://localhost:5000`
 
-Upload satu/lebih file .csv/.json (hasil scraping/media sosial).
+---
 
-(Opsional) Isi Instruksi tambahan untuk Gemini, mis:
+## 🚀 Alur Penggunaan
 
-Normalisasi nama daerah ke kab/kota, abaikan baris tanpa harga. Konversi semua harga ke Rp/kg bila memungkinkan.
+1. **Upload** satu/lebih file `.csv`/`.json`.  
+2. (Opsional) Isi **Instruksi tambahan** untuk Gemini (contoh: *“Normalisasi nama daerah ke kab/kota, abaikan baris tanpa harga. Konversi semua harga ke Rp/kg.”*).  
+3. Klik **Bersihkan & Parse** → backend memanggil Gemini → hasil tampil di tabel.  
+4. Lihat **Ranking**: Top 10 daerah termurah per kualitas.  
+5. **Word Cloud & Sentiment**  
+   - Pilih mode: **Berdasarkan Kualitas** atau **Berdasarkan Harga**  
+   - Klik **Generate Word Cloud** → tampil SVG + ringkasan + metrik sentimen + top words  
+6. **Export** data tabel (JSON/CSV) & **SVG** word cloud.  
+7. Snapshot hasil disimpan di **localStorage** (tidak hilang saat refresh).
 
-Klik Bersihkan & Parse → backend melakukan prompt ke Gemini → hasil (array JSON) tampil sebagai tabel.
+---
 
-Lihat Rangkuman: Top 10 daerah termurah per kualitas.
+## 🔌 API Backend
 
-(Opsional) Word Cloud & Sentiment
-
-Pilih mode Berdasarkan Kualitas atau Berdasarkan Harga
-
-Klik Generate Word Cloud → FE kirim data mentah (atau fallback cleaned) ke /api/analyze-sentiment → tampil SVG, summary, metrik sentimen, top_words.
-
-Export:
-
-Data tabel → JSON/CSV
-
-Word cloud → SVG
-
-Snapshot hasil (cleaned/metas/raw/sort) tersimpan di localStorage sehingga tidak hilang saat refresh halaman.
-
-API Backend
-POST /api/ingest-file
-
-Body
-
+### `POST /api/ingest-file`
+**Body**
+```json
 {
   "rows": [ /* array of raw objects from CSV/JSON */ ],
-  "prompt": "opsional string instruksi tambahan"
+  "prompt": "opsional instruksi tambahan"
 }
+```
 
-
-Response (sukses, JSON murni)
-
+**Response (berhasil, JSON murni)**
+```json
 {
   "ok": true,
   "data": [
     {
-      "source": "Twitter | CNN | Medium | ...",
+      "source": "Twitter | CNN | ...",
       "region": "Kota Bandung",
       "harga": 13500,
       "kualitas": "premium",
@@ -256,10 +182,10 @@ Response (sukses, JSON murni)
     "tookMs": 8123
   }
 }
+```
 
-
-Response (model tidak mengembalikan JSON murni)
-
+**Response (model tidak mengembalikan JSON murni)**
+```json
 {
   "ok": true,
   "raw": "…teks non-JSON dari model…",
@@ -272,133 +198,177 @@ Response (model tidak mengembalikan JSON murni)
     "tookMs": 9500
   }
 }
+```
 
-
-Response (gagal)
-
+**Response (gagal)**
+```json
 { "ok": false, "error": "Gemini(ResponsesAPI) timeout after 90000ms" }
+```
 
+> Backend **membatasi** jumlah baris (mis. 400) untuk stabilitas & kecepatan.
 
-Server akan memotong rows di sisi BE (mis. 400 item) agar stabil.
+---
 
-POST /api/analyze-sentiment
-
-Body
-
+### `POST /api/analyze-sentiment`
+**Body**
+```json
 {
-  "rows": [ /* array raw rows (diproyeksi & dibatasi 300-400) */ ],
+  "rows": [ /* array raw rows; server memproyeksikan kolom teks penting */ ],
   "by": "kualitas", // atau "harga"
   "prompt": "opsional instruksi tambahan"
 }
+```
 
-
-Response (sukses)
-
+**Response (berhasil)**
+```json
 {
   "ok": true,
   "data": {
     "svg": "<svg ...>...</svg>",
     "sentiments": { "positive": 23, "neutral": 51, "negative": 12, "method": "lexicon+rule-based" },
-    "summary": "Ringkasan 1-2 paragraf...",
+    "summary": "Ringkasan 1–2 paragraf...",
     "top_words": [
       { "text": "premium", "weight": 38, "sentiment": "positive" },
       { "text": "mahal", "weight": 22, "sentiment": "negative" }
     ]
   }
 }
+```
 
-
-Response (raw)
-
+**Response (raw)**
+```json
 { "ok": true, "raw": "…model reply…", "meta": { "note": "Model tidak mengembalikan 'svg' valid" } }
+```
 
-
-Response (gagal)
-
+**Response (gagal)**
+```json
 { "ok": false, "error": "Responses API 404: {\"error\":{\"message\":\"Model not found: models/gemini-1.5-flash-8b\"...}}" }
+```
 
-Implementasi Gemini (Stabil)
+---
 
-Selalu gunakan Responses API v1beta/responses:generate dengan responseMimeType: application/json.
+## 🧠 Implementasi Gemini (Stabil)
 
-Helper askGeminiAsJson():
+- Gunakan **Responses API**: `v1beta/responses:generate` + `generationConfig.responseMimeType = "application/json"`.
+- Helper `askGeminiAsJson()`:
+  - Mencoba otomatis:
+    - **Responses API** dengan `models/<id>`
+    - **Responses API** dengan `<id>` plain
+    - **Legacy** `:generateContent` (fallback)
+  - **Retry** exponential backoff + **hard timeout** (default 90s)
+- ENV:
+  ```env
+  GEMINI_API_KEY=...
+  GEMINI_MODEL=gemini-1.5-flash  # aman & cepat
+  # atau gemini-1.5-flash-8b bila akun Anda mendukung
+  ```
 
-Mencoba 3 varian otomatis:
+**Payload hygiene**
+- Server-side **limit** (ingest: 300–400 baris / request).  
+- **Hapus** triple backticks ``` dari prompt (hemat token).  
+- Prompt tetap **singkat & tegas** (hindari duplikasi aturan).
 
-model "models/<id>" (kanon)
+---
 
-model "<id>" (plain)
+## 🎛️ UI/UX (FE)
 
-Legacy :generateContent (fallback)
+- Tema gelap elegan (CSS murni)
+- Upload multi-file, progress per chunk, badge info/error
+- Tabel zebra, sorting (harga/region/kualitas)
+- **Ranking** per kualitas (Top 10 termurah)
+- **Word Cloud** (SVG inline), **Sentiment** & Insight
+- **Export** CSV/JSON (tabel) & SVG (word cloud)
+- Snapshot ke **localStorage** (rows/cleaned/metas/raw/sort)
 
-Retry dengan exponential backoff
+---
 
-Hard timeout (default 90s)
+## 🧪 Troubleshooting
 
-ENV:
+**404 dari Gemini**
+- `GEMINI_MODEL` tidak cocok/akun tidak punya akses.  
+- Pastikan model umum dulu: `gemini-1.5-flash`.  
+- Helper akan mencoba `models/<id>` → `<id>` → legacy; baca pesan error lengkap.
 
-GEMINI_API_KEY=...
-GEMINI_MODEL=gemini-1.5-flash   # aman & cepat
-# (opsional) gemini-1.5-flash-8b bila tersedia
+**Timeout 60–90s**
+- Kecilkan `CHUNK_SIZE` (FE) & `MAX_ROWS` (BE).  
+- Ganti model ke `gemini-1.5-flash` (lebih cepat).  
+- Naikkan sementara `timeoutMs` di helper (mis. 120_000).
 
-Tips Performa & Keandalan
+**“Could not establish connection. Receiving end does not exist.”**
+- Pesan **extension browser** (bukan fetch kamu). Gunakan Incognito / matikan extension.
 
-Batasi payload di FE dan BE (400–600 baris per request).
+**413 PayloadTooLargeError**
+- Naikkan limit:
+  ```ts
+  app.use(express.json({ limit: "25mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "25mb" }));
+  ```
+- Kecilkan file/chunk.
 
-Hapus triple backticks di prompt (hemat token).
+**TypeScript rewel (FE)**
+- Type-only import:
+  ```ts
+  import Papa, { type ParseResult } from "papaparse";
+  ```
+- Dengan `exactOptionalPropertyTypes: true` → **omit** properti alih-alih set `undefined`.
 
-Simpan instruksi tetap (fixed prompt) singkat & jelas.
+**ESM NodeNext**
+- Selalu impor relatif dengan **akhiran `.js`**.  
+  `import route from "./routes/ingest-file.js"`
 
-Gunakan model cepat (flash) saat eksplorasi; beralih ke -8b bila butuh kualitas lebih dan akun mendukung.
+---
 
-Hindari Vite proxy saat dev (set VITE_API_BASE=http://localhost:5000/api) untuk menghindari ECONNRESET.
+## 🧾 Skrip NPM (Contoh)
 
-nodemon.json untuk cegah restart tak perlu saat FE berubah/JSON besar.
+**backend/package.json**
+```json
+{
+  "scripts": {
+    "dev": "nodemon --config nodemon.json --exec ts-node src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  }
+}
+```
 
-Troubleshooting
+**frontend/package.json**
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
+```
 
-1) 404 dari Gemini
+---
 
-GEMINI_MODEL salah/akun tidak punya akses.
+## 🔐 Keamanan
 
-Pastikan format benar: gemini-1.5-flash (helper akan coba models/… & plain).
+- Jangan commit `.env`
+- Batasi ukuran input (server)
+- Validasi & sanitasi output (khususnya `svg` bila aplikasi dipublikasikan)
 
-Lihat pesan error lengkap (helper sekarang mengembalikan detail path yg gagal).
+---
 
-2) Timeout 60–90s
+## 🗺️ Roadmap (Opsional)
 
-Payload kebesaran → kecilkan CHUNK_SIZE FE & MAX_ROWS BE.
+- Persist hasil ke database
+- Filter lanjutan per kualitas/region
+- Peta (choropleth) harga per kab/kota
+- Multi-SVG word cloud per kualitas
+- Auth + multi-user workspace
 
-Model lambat → coba gemini-1.5-flash biasa (tanpa -8b).
+---
 
-Koneksi lambat → naikkan timeoutMs ke 120s sementara.
+## 📝 Lisensi
 
-3) Could not establish connection. Receiving end does not exist.
+Pilih lisensi (MIT/Apache-2.0) dan tambahkan berkas `LICENSE`.
 
-Itu pesan extension browser (bukan fetch kamu). Coba Incognito / disable extensions.
+---
 
-4) 413 PayloadTooLargeError
+## 🙌 Kredit
 
-Tambahkan limit body di backend:
-
-app.use(express.json({ limit: "25mb" }));
-app.use(express.urlencoded({ extended: true, limit: "25mb" }));
-
-
-Kecilkan file/upload atau chunk lebih kecil.
-
-5) TypeScript rewel (FE)
-
-PapaParse types:
-
-import Papa, { type ParseResult } from "papaparse";
-
-
-verbatimModuleSyntax aktif → import type-only untuk types, dan hindari undefined pada optional (exactOptionalPropertyTypes: true) → omit properti ketimbang set undefined.
-
-6) ESM NodeNext
-
-Seluruh import relatif antar berkas akhiri .js (walau file sumber TS).
-
-Contoh: import analyzeRoute from "./routes/analyze-sentiment.js";
-
+Dikembangkan untuk analitik cepat harga/kualitas beras di Jawa Barat.  
+Teknologi: React, Express, Google Gemini (Responses API).
