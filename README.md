@@ -62,6 +62,22 @@ Fitur Utama
 
 ✅ Snapshot hasil (persist di browser)
 
+✅ Upload multi-file (.csv/.json)
+
+✅ Chunking & payload limiting ke Gemini (stabil, anti timeouts)
+
+✅ Normalisasi harga → Rp/kg, region → kab/kota Jawa Barat, kualitas → label konsisten
+
+✅ Tabel + sorting (harga/region/kualitas)
+
+✅ Ranking termurah per kualitas
+
+✅ Word Cloud (SVG) + Sentiment by harga atau kualitas
+
+✅ Export JSON/CSV (tabel) + SVG (word cloud)
+
+✅ Snapshot hasil (persist di browser)
+
 
 Struktur Proyek (Direkomendasikan)
 /backend
