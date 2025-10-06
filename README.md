@@ -1,4 +1,4 @@
-# Analitik Harga/Kualitas Beras – Jabar (MVP)
+# Analitik Harga/Kualitas Beras untuk b2b – Jabar
 
 Aplikasi untuk **menormalkan** data harga/kualitas beras/padi/gabah dari berbagai sumber (CSV/JSON hasil scraping atau media sosial), lalu menampilkan:
 
